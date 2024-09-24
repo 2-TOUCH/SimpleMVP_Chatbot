@@ -1,24 +1,47 @@
-# README
+# CareerBot バックエンド
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CareerBotプロジェクトのRuby on Railsバックエンドです。
 
-Things you may want to cover:
+## サーバーの起動方法
 
-* Ruby version
+1. プロジェクトフォルダに移動:
+   ```
+   cd path/to/chatbot-backend
+   ```
 
-* System dependencies
+2. 必要に応じて依存関係をインストール:
+   ```
+   bundle install
+   ```
 
-* Configuration
+3. データベースの設定:
+   `config/database.yml` ファイルが正しく設定されていることを確認してください。
+    データベースには、以下のカラムがあります：["id", "name", "History", "created_at", "updated_at"]。
+   
 
-* Database creation
+5. データベースの作成とマイグレーション（初回のみ）:
+   ```
+   rails db:create db:migrate
+   ```
 
-* Database initialization
+6. サーバーの起動:
+   ```
+   rails server -p 4000
+   ```
 
-* How to run the test suite
+これで、APIは `http://localhost:4000` で利用可能になります。
 
-* Services (job queues, cache servers, search engines, etc.)
+## 主なAPIエンドポイント
 
-* Deployment instructions
+- 新規ユーザー作成: `POST /api/v1/users`
+- ユーザー情報取得: `GET /api/v1/users?id=<user_id>`
 
-* ...
+## トラブルシューティング
+
+- データベース接続エラーが発生した場合は、`config/database.yml` の設定を確認してください。
+- CORS関連のエラーが発生した場合は、`config/initializers/cors.rb` の設定を確認してください。
+
+## 注意事項
+
+- 本番環境にデプロイする際は、適切な環境変数の設定を忘れずに行ってください。
+- APIキーなどの機密情報は `.env` ファイルに保存し、Gitにコミットしないようにしてください。

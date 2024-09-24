@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: Password
+
+development:
+  <<: *default
+  database: chatbot_development
+
+test:
+  <<: *default
+  database: chatbot_test
+
+production:
+  <<: *default
+  database: chatbot_production
+  username: chatbot
+  password: <%= ENV['CHATBOT_DATABASE_PASSWORD'] %>

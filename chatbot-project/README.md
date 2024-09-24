@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CareerBot フロントエンド
 
-## Getting Started
+このプロジェクトは[Next.js](https://nextjs.org)を使用し、[`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app)でブートストラップされています。
 
-First, run the development server:
+## はじめに
+
+開発サーバーを起動するには：
 
 ```bash
 npm run dev
-# or
+# または
 yarn dev
-# or
+# または
 pnpm dev
-# or
+# または
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いて結果を確認してください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`app/page.tsx` を編集することでページの編集を開始できます。ファイルを編集すると、ページは自動的に更新されます。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+このプロジェクトは [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) を使用して、Vercelの新しいフォントファミリーである [Geist](https://vercel.com/font) を自動的に最適化して読み込んでいます。
 
-## Learn More
+## プロジェクト固有の設定
 
-To learn more about Next.js, take a look at the following resources:
+1. 環境変数の設定:
+   プロジェクトのルートディレクトリに `.env.local` ファイルを作成し、以下の内容を追加してください：
+   ```
+   NEXT_PUBLIC_GEMINI_API_KEY=あなたのGemini_APIキー
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. バックエンドの設定:
+   `services/api.ts` ファイル内の `API_BASE_URL` を、Railsバックエンドのアドレスに合わせて更新してください。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 主な機能
 
-## Deploy on Vercel
+- ユーザー認証（新規登録と既存ユーザーログイン）
+- Gemini AIを使用したキャリアアドバイスチャット
+- レスポンシブなチャットインターフェース
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
